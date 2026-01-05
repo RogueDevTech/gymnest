@@ -38,7 +38,7 @@ const Navbar = () => {
     <nav
       className={`fixed left-0 right-0 z-999 transition-all duration-300
         /* Desktop styles - unchanged */
-        lg:mx-auto lg:w-[90%] lg:max-w-[1440px] lg:rounded-lg
+        lg:mx-auto lg:w-[91%] lg:max-w-[1440px] lg:rounded-lg
         px-5 sm:px-8 md:px-10
         
         /* Mobile styles */
