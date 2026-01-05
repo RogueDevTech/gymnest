@@ -47,7 +47,7 @@ const Structure: React.FC<TreadmillGridProps> = ({
             />
           </div>
 
-          <div className="absolute bottom-0 right-3 text-[#443702] ">
+          <div className="absolute bottom-5 right-3 text-[#443702]">
             {icons}
           </div>
         </div>
@@ -58,7 +58,9 @@ const Structure: React.FC<TreadmillGridProps> = ({
           <p className="font-[Kumbh] text-[14px] text-[#484747] leading-relaxed mb-2">
             {features}
           </p>
-          <p className="font-[Kumbh] font-semibold lg:font-bold text-[16px]">${price}</p>
+          <p className="font-[Kumbh] font-semibold lg:font-bold text-[16px]">
+            ${price}
+          </p>
         </div>
       </motion.div>
     </Link>

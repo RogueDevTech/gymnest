@@ -169,7 +169,7 @@ export default function CheckoutPage() {
             </div>
           </div>
 
-          <div className=" pt-4 space-y-2 pb-4">
+          <div className=" pt-4 space-y-4 pb-4">
             <div className="">
               <h3 className="mb-2 font-[Kumbh] font-regular text-sm leading-none tracking-normal text-[#5C5C5C]">
                 Location{" "}
