@@ -124,7 +124,7 @@ const Navbar = () => {
               <button className="px-4 py-2 font-[Kumbh] font-bold text-[12px] rounded-md border border-gray-800 hover:bg-yellow-500 hover:text-black transition">
                 Log In
               </button>
-              <button className="w-[119px] py-3 font-[Kumbh] font-regular text-[#1B1A1A] rounded-lg bg-[#FBCC0C]">
+              <button className="w-full py-2 font-[Kumbh] font-regular text-[#1B1A1A] rounded-lg bg-[#FBCC0C]">
                 Register
               </button>
             </div>
