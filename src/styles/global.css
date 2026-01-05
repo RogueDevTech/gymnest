@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+/* --------------------------------------
+   ✅ Custom Font Faces
+--------------------------------------- */
+@font-face {
+  font-family: "HelveticaNeueBlack";
+  src: url("/assest/fonts/helvi/HelveticaNeueBlack.otf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "HelveticaNeueMedium";
+  src: url("/assest/fonts/helvi/HelveticaNeueMedium.otf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "HelveticaNeueLight";
+  src: url("/assest/fonts/helvi/HelveticaNeueLight.otf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Kumbh";
+  src: url("/assest/fonts/Kumbh_Sans/KumbhSans-VariableFont_YOPQ,wght.ttf")
+    format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/assest/fonts/mont/Montserrat-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Over";
+  src: url("/assest/fonts/OvertheRainbow-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MontserratBold";
+  src: url("/assest/fonts/mont/Montserrat-Bold.ttf") format("truetype");
+  font-display: swap;
+}
+/* 
+@font-face {
+  font-family: "Sora";
+  src: url("/assets/fonts/Sora/Sora-Regular.ttf") format("truetype");
+  font-display: swap;
+} */
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/assest/fonts/satoshi/Satoshi-Regular.otf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MainluxBold";
+  src: url("/assest/fonts/mainLux/FontsFree-Net-Mainlux-Bold.ttf")
+    format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/assest/fonts/poppings/Poppins-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/assest/fonts/inter/Inter_18pt-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mainlux";
+  src: url("/assest/fonts/mainLux/MainluxLight-DOAJx.otf") format("truetype");
+  font-display: swap;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "WorkSans";
+  src: url("/assest/fonts/static/WorkSans-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+/* --------------------------------------
+   ✅ Font Variables
+--------------------------------------- */
+:root {
+  --font-primary: "Satoshi", sans-serif;
+  --font-secondary: "Montserrat", sans-serif;
+  --font-accent: "Sora", sans-serif;
+  --font-helvetica: "HelveticaNeueMedium", sans-serif;
+  --font-Kumbh: "Kumbh", sans-serif;
+  --font-mainluxbold: "MainluxBold", sans-serif;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: #f8f8f8;
+  color: #111111;
+}
+
+.font-helvetica {
+  font-family: var(--font-helvetica);
+}
+
+.font-sora {
+  font-family: var(--font-accent);
+}
+
+.font-montserrat {
+  font-family: var(--font-secondary);
+}
+
+.font-satoshi {
+  font-family: var(--font-primary);
+}
+
+.font-worksans {
+  font-family: "WorkSans", sans-serif;
+}
+
+@keyframes text-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-text-gradient {
+  animation: text-gradient 3s ease-in-out infinite;
+}
