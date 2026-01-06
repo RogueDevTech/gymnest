@@ -1,5 +1,3 @@
-
-
 "use client";
 
 import React from "react";
@@ -30,7 +28,6 @@ export default function TrainerCard({ trainer }: TrainerCardProps) {
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        {/* Image Container - This is crucial for mobile */}
         <div className="relative w-full h-full">
           <Image
             src={trainer.img}
@@ -57,12 +54,10 @@ export default function TrainerCard({ trainer }: TrainerCardProps) {
             {trainer.session}
           </p>
         </div>
-
-        {/* Arrow Button */}
         <div
           className="
           absolute top-3 right-3 
-          w-[32px] h-[32px] md:w-[38px] md:h-[38px] lg:w-[60px] lg:h-[60px]
+          w-8 h-8 md:w-[38px] md:h-[38px] lg:w-[60px] lg:h-[60px]
           rounded-full bg-white flex items-center justify-center 
           shadow-[0px_2px_8px_0px_#0000001A]
         "

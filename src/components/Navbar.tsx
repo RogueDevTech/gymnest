@@ -1,12 +1,20 @@
 "use client";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX, FiShoppingCart } from "react-icons/fi";
 import Link from "next/link";
 
 const Navbar = () => {
+  const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  // Initialize scrolled from pathname and current scroll position to avoid synchronous setState in effects
+  const [scrolled, setScrolled] = useState(() => {
+    if (typeof window === "undefined")
+      return pathname ? pathname !== "/" : false;
+    if (pathname && pathname !== "/") return true;
+    return window.scrollY > 50;
+  });
 
   const handleScroll = () => {
     if (window.scrollY > 50) {
@@ -17,9 +25,26 @@ const Navbar = () => {
   };
 
   useEffect(() => {
+    if (pathname && pathname !== "/") {
+      // ensure brown on non-home routes; schedule to avoid synchronous setState
+      if (!scrolled) {
+        const id = setTimeout(() => setScrolled(true), 0);
+        return () => clearTimeout(id);
+      }
+      return;
+    }
+
+    // On the homepage: attach scroll listener and set initial state asynchronously
+    const initId = setTimeout(() => {
+      setScrolled(window.scrollY > 50);
+    }, 0);
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    return () => {
+      clearTimeout(initId);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [pathname, scrolled]);
 
   const scrollToContact = () => {
     const el = document.getElementById("contact");
@@ -39,16 +64,16 @@ const Navbar = () => {
       className={`fixed left-0 right-0 z-999 transition-all duration-300
         /* Desktop styles - unchanged */
         lg:mx-auto lg:w-[91%] lg:max-w-[1440px] lg:rounded-lg
-        px-5 sm:px-8 md:px-10
+        px-4 sm:px-6 md:px-10
         
         /* Mobile styles */
-        ${scrolled ? "top-0" : "top-2 lg:top-14"}
+        ${scrolled ? "top-0" : "top-1 lg:top-14"}
       
         
         ${
           scrolled
-            ? "bg-[#2B2303] shadow-md text-black py-3 lg:top-10"
-            : "bg-black/10 backdrop-blur-md py-4 border border-[#292827]"
+            ? "bg-[#2B2303] shadow-md text-black py-2 lg:top-10"
+            : "bg-black/10 backdrop-blur-md py-2 border border-[#292827]"
         }
         
         /* Mobile margins only when not scrolled */
@@ -59,9 +84,9 @@ const Navbar = () => {
       <div className="relative flex items-center justify-between text-white md:text-white transition-colors duration-300">
         <Link
           href="/"
-          className="text-[14px] leading-[18px] font-bold cursor-pointer font-[Over]"
+          className="text-[13px] sm:text-[14px] leading-[18px] font-bold cursor-pointer font-[Over]"
         >
-          GYMNEST
+          MR KINGS FIT
         </Link>
 
         <ul className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-10 font-medium font-[Kumbh]">
@@ -96,7 +121,7 @@ const Navbar = () => {
 
         <div className="md:hidden flex items-center">
           <button onClick={() => setMenuOpen(!menuOpen)}>
-            {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+            {menuOpen ? <FiX size={20} /> : <FiMenu size={20} />}
           </button>
         </div>
       </div>
@@ -108,7 +133,7 @@ const Navbar = () => {
             animate="visible"
             exit="hidden"
             variants={menuVariants}
-            className="md:hidden mt-4 flex flex-col gap-4 font-medium text-gray-800 bg-white rounded-lg shadow-lg p-6"
+            className="md:hidden mt-3 flex flex-col gap-3 font-medium text-gray-800 bg-white rounded-lg shadow-lg p-4"
           >
             <li className="cursor-pointer hover:text-yellow-500 transition">
               Shop

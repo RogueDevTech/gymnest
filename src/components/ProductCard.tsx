@@ -11,10 +11,7 @@ interface ProductCardProps {
 
 const ProductCard = ({ item }: ProductCardProps) => {
   return (
-    <Link
-      href={`/shop/${item.slug}`}
-      //   className="w-full p-4 border rounded-lg hover:shadow-md transition"
-    >
+    <Link href={`/shop/${item.slug}`}>
       <motion.div
         className="flex flex-col gap-2 cursor-pointer"
         initial={{ opacity: 0, y: 40, scale: 0.95 }}
@@ -33,7 +30,7 @@ const ProductCard = ({ item }: ProductCardProps) => {
               className="object-contain rounded-lg"
             />
           </div>
-          <div className="absolute bottom-0 right-3">{item.icons}</div>
+          <div className="absolute bottom-5 right-3">{item.icons}</div>
         </div>
         <div className="px-1">
           <h4 className="font-[Kumbh] font-medium text-[16px] leading-[110%] mb-2">
